@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    tools:showIn="@layout/ucrop_controls"
+    tools:visibility="visible">
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_centerVertical="true">
+
+
+    <SeekBar
+        android:id="@+id/pen_slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:foregroundGravity="center_vertical"
+        android:thumbTint="@color/ucrop_color_black"
+        android:progressTint="@color/ucrop_color_black"
+        android:secondaryProgressTint="@color/ucrop_color_blaze_orange"
+        android:progress="30"
+        android:max="60"
+        android:min="10"
+
+
+        />
+
+    <LinearLayout
+        android:id="@+id/color_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+      >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/red_button"
+            android:layout_width="@dimen/ucrop_color_selector_radius"
+            android:layout_height="@dimen/ucrop_color_selector_radius"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/round_color_button"
+            android:backgroundTint="#FF0000"
+            android:padding="2dp"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/blue_button"
+            android:layout_width="@dimen/ucrop_color_selector_radius"
+            android:layout_height="@dimen/ucrop_color_selector_radius"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/round_color_button"
+            android:backgroundTint="#0000ff"
+            android:padding="2dp"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/green_button"
+            android:layout_width="@dimen/ucrop_color_selector_radius"
+            android:layout_height="@dimen/ucrop_color_selector_radius"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/round_color_button"
+            android:backgroundTint="#008000"
+            android:padding="2dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/yellow_button"
+            android:layout_width="@dimen/ucrop_color_selector_radius"
+            android:layout_height="@dimen/ucrop_color_selector_radius"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/round_color_button"
+            android:backgroundTint="#ffff00"
+            android:padding="2dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/white_button"
+            android:layout_width="@dimen/ucrop_color_selector_radius"
+            android:layout_height="@dimen/ucrop_color_selector_radius"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/round_color_button"
+            android:backgroundTint="#FFFFFF"
+            android:padding="2dp"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pink_button"
+            android:layout_width="@dimen/ucrop_color_selector_radius"
+            android:layout_height="@dimen/ucrop_color_selector_radius"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/round_color_button"
+            android:backgroundTint="#ffc0cb"
+            android:padding="2dp" />
+
+    </LinearLayout>
+</LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/clear_button"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="6dp"
+        android:background="@null"
+        android:gravity="center_horizontal|center_vertical"
+        android:padding="2dp"
+        android:text="Clear"
+        android:textColor="@color/ucrop_color_black" />
+
+</RelativeLayout>

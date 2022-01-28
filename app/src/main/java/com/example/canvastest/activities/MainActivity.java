@@ -1,17 +1,39 @@
 package com.example.canvastest.activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.canvastest.R;
 import com.example.canvastest.customviews.CanvasView;
 import com.google.android.material.slider.Slider;
+import com.yalantis.ucrop.UCrop;
+import com.yalantis.ucrop.UCropActivity;
+import com.yalantis.ucrop.view.GestureCropImageView;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Calendar;
+import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -51,10 +73,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         clearButton = findViewById(R.id.clear_button);
         clearButton.setOnClickListener(this);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.image);
+        File  file = bitmapToFile(this, bitmap, "image.jpeg");
+        Uri imageUri = Uri.fromFile(file);
+        cropImage(imageUri);
     }
 
+    public  File bitmapToFile(Context context, Bitmap bitmap, String fileNameToSave) { // File name like "image.png"
+        //create a file to write bitmap data
+        File file = null;
+        try {
+            file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES) , "saved_images");
+            file.createNewFile();
+
+//Convert bitmap to byte array
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 0 , bos); // YOU can also save it in JPEG
+            byte[] bitmapdata = bos.toByteArray();
+
+//write the bytes in file
+            FileOutputStream fos = new FileOutputStream(file);
+            fos.write(bitmapdata);
+            fos.flush();
+            fos.close();
+            return file;
+        }catch (Exception e){
+            e.printStackTrace();
+            return file; // it will return null
+        }
+    }
     private void setSliderListener() {
         strokeSlider.addOnChangeListener(new Slider.OnChangeListener() {
+            @SuppressLint("RestrictedApi")
             @Override
             public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
                 if(fromUser){
@@ -99,7 +149,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.clear_button:
                 canvasView.setImageResource(R.drawable.image);
                 canvasView.clear();
+                //canvasView.setCanBeManipulated(false);
                 break;
+        }
+    }
+
+
+
+
+    private int CROP_IMG = 123;
+    private void cropImage(Uri sourceUri) {
+        UCrop.Options options = new UCrop.Options();
+        options.setToolbarTitle("Crop image");
+        options.setFreeStyleCropEnabled(true);
+        options.setAllowedGestures(UCropActivity.ALL, UCropActivity.SCALE, UCropActivity.ROTATE);
+        options.setHideBottomControls(false);
+        options.setShowCropFrame(false);
+        Uri destinationUri = Uri.fromFile(new File(getCacheDir(), UUID.randomUUID().toString()));
+        UCrop uCrop = UCrop.of(sourceUri, destinationUri);
+
+        uCrop.withAspectRatio(8, 5);
+        uCrop.withOptions(options);
+        uCrop.start(this, CROP_IMG);
+
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CROP_IMG && resultCode == RESULT_OK) {
+            if (data != null) {
+                try{
+                    final Uri resultUri = UCrop.getOutput(data);
+                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+                }catch(Exception ex){
+                    Toast.makeText(this, "Error occured", Toast.LENGTH_SHORT).show();
+                }
+
+            } else {
+                Toast.makeText(this, "Cannot get image. Please try again later", Toast.LENGTH_SHORT).show();
+            }
+
         }
     }
 }

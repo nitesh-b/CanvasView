@@ -6,6 +6,30 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.35" />
         <entry key="app/src/main/res/drawable/round_color_button.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3234375" />
+        <entry key="ucrop/src/main/res/drawable-ldpi/round_color_button.xml" value="0.252" />
+        <entry key="ucrop/src/main/res/drawable/ucrop_crop.xml" value="0.247" />
+        <entry key="ucrop/src/main/res/drawable/ucrop_draw.xml" value="0.247" />
+        <entry key="ucrop/src/main/res/drawable/ucrop_ic_crop.xml" value="0.2" />
+        <entry key="ucrop/src/main/res/drawable/ucrop_ic_crop_unselected.xml" value="0.247" />
+        <entry key="ucrop/src/main/res/drawable/ucrop_ic_draw.xml" value="0.247" />
+        <entry key="ucrop/src/main/res/drawable/ucrop_ic_draw_inselected.xml" value="0.247" />
+        <entry key="ucrop/src/main/res/drawable/ucrop_ic_next.xml" value="0.247" />
+        <entry key="ucrop/src/main/res/drawable/ucrop_ic_reset.xml" value="0.247" />
+        <entry key="ucrop/src/main/res/drawable/ucrop_ic_rotate.xml" value="0.247" />
+        <entry key="ucrop/src/main/res/drawable/ucrop_ic_rotate_unselected.xml" value="0.247" />
+        <entry key="ucrop/src/main/res/drawable/ucrop_ic_scale.xml" value="0.247" />
+        <entry key="ucrop/src/main/res/drawable/ucrop_ic_scale_unselected.xml" value="0.247" />
+        <entry key="ucrop/src/main/res/drawable/ucrop_rotate.xml" value="0.247" />
+        <entry key="ucrop/src/main/res/drawable/ucrop_scale.xml" value="0.247" />
+        <entry key="ucrop/src/main/res/layout/ucrop_activity_photobox.xml" value="0.3234375" />
+        <entry key="ucrop/src/main/res/layout/ucrop_aspect_ratio.xml" value="0.3234375" />
+        <entry key="ucrop/src/main/res/layout/ucrop_controls.xml" value="0.3234375" />
+        <entry key="ucrop/src/main/res/layout/ucrop_fragment_photobox.xml" value="0.3234375" />
+        <entry key="ucrop/src/main/res/layout/ucrop_layout_draw_wheel.xml" value="0.3234375" />
+        <entry key="ucrop/src/main/res/layout/ucrop_layout_rotate_wheel.xml" value="0.3234375" />
+        <entry key="ucrop/src/main/res/layout/ucrop_layout_scale_wheel.xml" value="0.3234375" />
+        <entry key="ucrop/src/main/res/layout/ucrop_view.xml" value="0.2578125" />
+        <entry key="ucrop/src/main/res/menu/ucrop_menu_activity.xml" value="0.3234375" />
       </map>
     </option>
   </component>

@@ -13,6 +13,8 @@
         android:src="@drawable/image"
         />
 
+
+
     <LinearLayout
         android:id="@+id/color_linear_layout"
         android:layout_width="match_parent"

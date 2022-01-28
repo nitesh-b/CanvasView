@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <solid
+        android:color="#FFFFFF"/> <!--your desired colour for solid-->
+
+    <stroke
+        android:width="3dp"
+        android:color="#C39F9F" /> <!--your desired colour for border-->
+
+    <corners
+        android:radius="50dp"/> <!--shape rounded value-->
+
+</shape>
